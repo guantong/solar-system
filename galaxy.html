@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0b100e">
+    <title>Milky Way — Where Is the Solar System?</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      body { margin: 0; background: var(--surface); color: var(--ink); font-family: var(--display); min-height: 100vh; }
+      .g-top { display: flex; justify-content: space-between; align-items: center; padding: 16px 28px; border-bottom: 1px solid var(--line); font-family: var(--mono); font-size: 13px; letter-spacing: .08em; }
+      .g-top a { color: var(--accent); text-decoration: none; }
+      .g-wrap { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr); gap: 32px; padding: 32px 28px; max-width: 1300px; margin: 0 auto; }
+      @media (max-width: 860px) { .g-wrap { grid-template-columns: 1fr; } }
+      h1 { font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1; margin: 8px 0 0; }
+      .eyebrow { font-family: var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: .12em; font-size: 12px; margin: 0; }
+      .map { border: 1px solid var(--line); background: radial-gradient(circle at 50% 50%, #131c17, #070a09 70%); aspect-ratio: 1; position: relative; margin-top: 20px; }
+      .map svg { width: 100%; height: 100%; display: block; }
+      .pulse { animation: pulse 2s ease-out infinite; transform-origin: center; transform-box: fill-box; }
+      @keyframes pulse { from { transform: scale(.5); opacity: 1; } to { transform: scale(3); opacity: 0; } }
+      @media (prefers-reduced-motion: reduce) { .pulse { animation: none; } }
+      .info p { color: var(--muted); line-height: 1.6; }
+      .info h2 { font-size: 1.3rem; margin: 28px 0 8px; }
+      dl { margin: 0; font-family: var(--mono); font-size: 13px; }
+      dl div { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+      dt { color: var(--muted); } dd { margin: 0; text-align: right; }
+      .lbl { font-family: "DM Mono", monospace; font-size: 11px; fill: #9ba69b; letter-spacing: .06em; }
+      .lbl.hl { fill: #d3ec8b; font-size: 13px; font-weight: 500; }
+    </style>
+  </head>
+  <body>
+    <header class="g-top">
+      <a href="solar-system.html">← SOLAR SYSTEM ATLAS</a>
+      <span>MILKY WAY / TOP-DOWN MAP</span>
+    </header>
+    <main class="g-wrap">
+      <section>
+        <p class="eyebrow">Our galactic address</p>
+        <h1>The Milky Way,<br>and where we sit.</h1>
+        <div class="map">
+          <svg viewBox="-500 -500 1000 1000" role="img" aria-label="Top-down illustration of the Milky Way with the Solar System marked in the Orion Spur, about two thirds of the way out from the center">
+            <defs>
+              <radialGradient id="core"><stop offset="0" stop-color="#fff3c2"/><stop offset=".35" stop-color="#e9c46a" stop-opacity=".7"/><stop offset="1" stop-color="#e9c46a" stop-opacity="0"/></radialGradient>
+              <radialGradient id="disc"><stop offset="0" stop-color="#8fb3d9" stop-opacity=".25"/><stop offset="1" stop-color="#8fb3d9" stop-opacity="0"/></radialGradient>
+            </defs>
+            <circle r="470" fill="url(#disc)"/>
+            <g id="stars"></g>
+            <ellipse rx="110" ry="38" fill="url(#core)" transform="rotate(-25)"/>
+            <circle r="60" fill="url(#core)"/>
+            <circle r="290" fill="none" stroke="#d3ec8b" stroke-opacity=".35" stroke-dasharray="4 6"/>
+            <g id="sun-pos" transform="translate(0 290)">
+              <circle r="8" fill="#d3ec8b" class="pulse"/>
+              <circle r="5" fill="#fff3c2"/>
+              <line x1="0" y1="0" x2="60" y2="50" stroke="#d3ec8b"/>
+              <text class="lbl hl" x="66" y="58">YOU ARE HERE</text>
+              <text class="lbl" x="66" y="74">Solar System · Orion Spur</text>
+            </g>
+            <text class="lbl" x="12" y="-14" transform="rotate(-25)">Galactic center · Sgr A*</text>
+            <line x1="0" y1="0" x2="0" y2="290" stroke="#d3ec8b" stroke-opacity=".4"/>
+            <text class="lbl" x="-150" y="150">~26,000 light-years</text>
+            <text class="lbl" x="-330" y="-300">Perseus Arm</text>
+            <text class="lbl" x="250" y="-60">Scutum–Centaurus Arm</text>
+            <text class="lbl" x="-460" y="130">Sagittarius Arm</text>
+            <text class="lbl" x="-460" y="470">Diameter ≈ 100,000 ly</text>
+          </svg>
+        </div>
+      </section>
+      <aside class="info">
+        <p class="eyebrow">Location</p>
+        <h2>Out in a quiet suburb</h2>
+        <p>The Solar System lies in the Orion Spur, a minor arm segment between the Sagittarius and Perseus arms, roughly halfway between the galaxy's core and its edge.</p>
+        <dl>
+          <div><dt>Galaxy type</dt><dd>Barred spiral</dd></div>
+          <div><dt>Diameter</dt><dd>~100,000 ly</dd></div>
+          <div><dt>Distance to center</dt><dd>~26,000 ly</dd></div>
+          <div><dt>Orbital speed</dt><dd>~230 km/s</dd></div>
+          <div><dt>One galactic orbit</dt><dd>~230 million years</dd></div>
+          <div><dt>Stars</dt><dd>100–400 billion</dd></div>
+        </dl>
+        <h2>Note</h2>
+        <p>Arm shapes and star positions are illustrative, not a survey-accurate map.</p>
+      </aside>
+    </main>
+    <script>
+      const g = document.getElementById('stars');
+      const ns = 'http://www.w3.org/2000/svg';
+      let seed = 7;
+      const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+      const frag = document.createDocumentFragment();
+      const add = (x, y, r, o, c) => {
+        const e = document.createElementNS(ns, 'circle');
+        e.setAttribute('cx', x.toFixed(1)); e.setAttribute('cy', y.toFixed(1));
+        e.setAttribute('r', r.toFixed(2)); e.setAttribute('fill', c); e.setAttribute('opacity', o.toFixed(2));
+        frag.appendChild(e);
+      };
+      const arms = 4, pitch = 0.3;
+      for (let i = 0; i < 2600; i++) {
+        const arm = i % arms;
+        const t = rnd();
+        const r = 50 + t * 420;
+        const theta = Math.log(r / 50) / pitch + arm * Math.PI / 2 + 0.35;
+        const spread = (rnd() - 0.5) * (14 + r * 0.14) * 2;
+        const a = theta + spread / r;
+        const rr = r + (rnd() - 0.5) * 18;
+        add(rr * Math.cos(a), rr * Math.sin(a), 0.5 + rnd() * 1.3, 0.3 + rnd() * 0.7, rnd() < 0.2 ? '#9ec5ff' : '#f2efe4');
+      }
+      for (let i = 0; i < 500; i++) {
+        const a = rnd() * 6.283, r = Math.pow(rnd(), 1.8) * 120;
+        add(r * Math.cos(a), r * Math.sin(a) * 0.9, 0.5 + rnd(), 0.5 + rnd() * 0.5, '#ffe1a0');
+      }
+      g.appendChild(frag);
+    </script>
+  </body>
+</html>
